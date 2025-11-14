@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+{{title}}
+{% endblock pagetitle %}
+{% block body %}
+
+<div>
+  <div class="container">
+    <div class="row mb-5 text-center">
+      <div class="col-lg-10 mx-auto">
+        <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(4, 54, 4);""><b>{{title}} 🍂</b></h1>
+      </div>
+    </div>
+    
+    <center>
+    <div class=" col-lg-6 col-md-8">
+          <div class="p-3 bg-white shadow rounded-lg">
+            <h5 class="mb-3">Your Uploaded Image:</h5>
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" style="max-width: 100%; height: auto; max-height: 400px; border-radius: 0.5rem;" alt="Your Uploaded Image">
+          </div>
+      </div>
+      </center>
+      <br>
+      
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="p-5 bg-white shadow rounded-lg mb-4">
+            <h5><b>
+                {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or
+                pred==24 or pred==25 or pred==28 or pred==38 %}
+                Tips to Grow Healthy Plants :
+                {% else %}
+                Brief Descritpion :
+                {% endif %}
+              </b></h5>
+            <p>{{desc}}
+            </p>
+          </div>
+
+          <div class="p-5 bg-white shadow rounded-lg mb-4">
+            <h5><b>
+                {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or
+                pred==24 or pred==25 or pred==28 or pred==38 %}
+                Benefits :
+                {% else %}
+                Prevent This Plant Disease By follow below steps :
+                {% endif %}
+              </b></h5>
+            <p>
+              {{prevent}}
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-outline-success">Test Another Image</a>
+    </div>
+
+  </div>
+</div>
+{% endblock body %}

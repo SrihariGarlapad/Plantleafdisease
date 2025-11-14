@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Detect Disease
+{% endblock pagetitle %}
+
+{% block body %}
+<div>
+    <div class="container">
+        <div class="row mb-5 text-center text-white">
+            <div class="col-lg-10 mx-auto">
+                <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(4, 54, 4);"><b>🍀Plant Disease Detection🍀</b></h1>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
+
+                    <form action="/submit" method="POST" enctype="multipart/form-data" class="text-center">
+                        
+                        <h6 class="text-center mb-4 text-muted">
+                            Upload your plant's leaf image to see the magic of AI.
+                        </h6>
+
+                        <div class="custom-file overflow-hidden mb-4">
+                            <input type="file" id="actual-btn" hidden name="image" accept="image/*" />
+                            <label for="actual-btn">Choose File</label>
+                            <br>
+                            <span id="file-chosen">No file chosen</span>
+                        </div>
+                        
+                        <img id="preview" src="#" alt="Your Image Preview" style="display: none; max-width: 100%; height: auto; margin-top: 1rem; border-radius: 0.5rem;"/>
+
+
+                        <center>
+                            <button type="submit" class="btn btn-success" style="background-color: #05380b; border: none; padding: 0.5rem 1.5rem; margin-top: 1rem;">Submit</button>
+                        </center>
+                    </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const actualBtn = document.getElementById('actual-btn');
+    const fileChosen = document.getElementById('file-chosen');
+    const preview = document.getElementById('preview');
+
+    actualBtn.addEventListener('change', function () {
+        if (this.files && this.files[0]) {
+            fileChosen.textContent = this.files[0].name;
+            
+            // Show image preview
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    })
+</script>
+
+{% endblock body %}

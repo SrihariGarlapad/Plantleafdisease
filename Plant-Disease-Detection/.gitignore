@@ -1,0 +1,47 @@
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.log
+
+# ---- Environment ----
+venv/
+.env
+*.env
+
+# ---- Flask specific ----
+instance/
+*.db
+*.sqlite3
+
+# ---- Machine Learning Models ----
+*.pt
+*.h5
+*.pkl
+*.joblib
+*.ckpt
+*.onnx
+
+# ---- Jupyter / Colab ----
+.ipynb_checkpoints/
+*.ipynb
+
+# ---- OS files ----
+.DS_Store
+Thumbs.db
+
+# ---- VS Code / IDE ----
+.vscode/
+.idea/
+
+# ---- Build / Distribution ----
+build/
+dist/
+*.egg-info/
+
+# ---- Temporary ----
+*.tmp
+*.bak
+*.swp
