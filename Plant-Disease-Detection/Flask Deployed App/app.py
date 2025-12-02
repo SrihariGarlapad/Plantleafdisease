@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 # --- 1. DEFINE VGG16 MODEL ARCHITECTURE ---
-def create_vgg16_model(targets_size=38): # Make sure 38 is the correct number of classes
+def create_vgg16_model(targets_size=38): 
     model = models.vgg16(pretrained=False)
     n_features = model.classifier[0].in_features
     model.classifier = nn.Sequential(
